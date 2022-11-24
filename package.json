@@ -29,7 +29,6 @@
     "url": "https://github.com/jeremydaly/serverless-mysql/issues"
   },
   "homepage": "https://github.com/jeremydaly/serverless-mysql#readme",
-  "dependencies": {},
   "devDependencies": {
     "chai": "^4.2.0",
     "coveralls": "^3.0.11",
@@ -40,11 +39,16 @@
     "rewire": "^4.0.1",
     "sinon": "^6.3.5"
   },
-  "optionalDependencies": {},
+  "optionalDependencies": {
+    "@types/mysql": "^2.15.21"
+  },
   "files": [
     "LICENSE",
     "README.md",
     "index.js",
     "index.d.ts"
-  ]
+  ],
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
 }

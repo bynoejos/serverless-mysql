@@ -1,6 +1,5 @@
 // Type definitions for serverless-mysql
-
-import * as MySQL from 'mysql';
+import { ConnectionConfig, Connection, EscapeFunctions } from 'mysql';
 
 // https://github.com/microsoft/TypeScript/issues/8335#issuecomment-215194561
 declare namespace serverlessMysql {
@@ -30,7 +29,7 @@ declare namespace serverlessMysql {
     /**
      * Object  A mysql configuration object as defined here  {}
      */
-    config?: MySQL.ConnectionConfig;
+    config?: ConnectionConfig;
     /**
      * Number  The percentage of total connections to use when connecting to your MySQL server. A value of 0.75 would use 75% of your total available connections.  0.8
      */
@@ -97,15 +96,15 @@ declare namespace serverlessMysql {
 
   export type ServerlessMysql = {
     connect(wait?: number): Promise<void>;
-    config(config?: MySQL.ConnectionConfig): MySQL.ConnectionConfig;
+    config(config?: ConnectionConfig): ConnectionConfig;
     query<T>(...args): Promise<T>;
     end(): Promise<void>;
-    escape(str: string): MySQL.EscapeFunctions;
+    escape(str: string): EscapeFunctions;
     quit(): void;
     transaction(): Transaction;
     getCounter(): number;
-    getClient(): MySQL.Connection;
-    getConfig(): MySQL.ConnectionConfig;
+    getClient(): Connection;
+    getConfig(): ConnectionConfig;
     getErrorCount(): number;
   };
 }
